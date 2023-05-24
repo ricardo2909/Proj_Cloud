@@ -10,7 +10,7 @@ A seguir, os 3 principais comandos do terraform para subir a aplicação:
 - ```terraform plan```
 - ```terraform apply``` (náo se esqueça de escrever "yes" na hora de digitar um valor)
 
-Após o apply, haverá um link como output com o nome da varialvel ```elb_public_ip```, que será gerado no próprio terminal.
+Após o apply, haverá um link como output, no próprio terminal, na varialvel ```elb_public_ip```.
 
 Copie esse link e cole em uma nova aba.
 
