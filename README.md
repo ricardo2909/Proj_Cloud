@@ -14,6 +14,6 @@ Após o apply, haverá um link como output, e será gerado no próprio terminal.
 
 Copie esse link e cole em uma nova aba.
 
-Haverá um "Hello, World!" na tela. Isso significa que você conseguiu acesso ao secret, e consequentemente a aplicação. 
+Haverá um "Hello, World!" na tela. Isso significa que você conseguiu acesso ao secret com sucesso e consequentemente servindo com êxito. 
 
 
