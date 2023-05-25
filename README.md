@@ -40,3 +40,29 @@ O KMS é o Key Management Service, que é o serviço de gerenciamento de chaves.
 -Criacao de um exemplo de segredo: ```main.tf``` linhas 88-92 (secret_string indica o conteúdo do secret que esta dentro de um arquivo chamado "secrets.json")
 - Politica de acesso: ```main.tf``` linhas 94-112 (essa politica permite o principal (no caso, a funcao IAM com ARN especifico) a acessar a chave criada anteriormente)
 
+### 5. IAM
+O IAM é o Identity and Access Management, que é o serviço de gerenciamento de identidade e acesso. Para isso, é necessário criar uma função e definir as regras de acesso.
+-Definicao da Role: ```main.tf``` linhas 115-131 (nome = "example-ecs-task-execution", assume_role_policy = jsonencode indica a politica de acesso que a funcao terá que nesse caso é um objeto json)
+- Politica de acesso: ```main.tf``` linhas 133-166 (Cria uma politica para ser associada a Role criada anteriormente. Por exemplo, nesse caso, obter os segredos do secret manager e descriptografar e usar o segredo com KMS)
+-Associacao da Polita a Role: ```main.tf``` linhas 185-189 (Associa a politica criada anteriormente a Role criada anteriormente)
+
+### 6. ECS Fargate
+O ECS Fargate é o serviço de container da AWS. Para isso, é necessário criar um cluster e uma task definition.
+- Cluster: ```main.tf``` linhas 191-194 (Defifinicao do cluster com nome "example-cluster")
+- Task Definition: ```main.tf``` linhas 196-242 (Definicao da task definition do ECS Fargate, alguns detalhes especificados nessa seção sao: mapeamento da porta 80 do container para a porta 80 do host, segredo que sera usado pelo container como credencial de acesso, entre outras.)
+- CloudWatch Log Group: ```main.tf``` linhas 244-246 (Definicao do log group com nome "/ecs/example", que sera usado para armazenar os logs do container)
+- Security Group: ```main.tf``` linhas 249-271 (Definicao do security group com nome "example-ecs-sg", que sera usado para controlar o trafego de rede do container. Ingress e Egress sao as regras de entrada e saida, respectivamente.)
+
+### 7. ECS
+O ECS é o Elastic Container Service, que é o serviço de container da AWS. Para isso, é necessário criar um service.
+- Criacao do serviço: ```main.tf``` linhas 275-295 (launch_type = "FARGATE" indica que o tipo de lancamento sera o Fargate, load_balancer indica que o container sera acessado por um load balancer)
+
+### 8. Load Balancer
+O Load Balancer é o balanceador de carga da AWS. Para isso, é necessário criar um load balancer.
+- Criacao do load balancer: ```main.tf``` linhas 297-304 (serve para balancear a carga de acesso ao container, no meu caso, o tipo de load balancer é o application)
+- Target Group: ```main.tf``` linhas 306-324 (serve para definir o grupo de destino do load balancer, no meu caso, o tipo de target group é o ip)
+- Listener: ```main.tf``` linhas 327-336 (serve para definir o ouvinte do load balancer, no meu caso, o tipo de listener é o http na porta 80)
+- Gateway: ```main.tf``` linhas 338-340 (serve para definir o gateway do load balancer, no meu caso, o tipo de gateway é o internet associado a vpc criada anteriormente)
+- Rout Table: ```main.tf``` linhas 342-349 (serve para definir a tabela de roteamento na AWS)
+- Rout Table Association: ```main.tf``` linhas 351-354 (serve para associar a tabela de roteamento VPC criada anteriormente)
+- Output: ```main.tf``` linhas 356-359 (serve para definir a saida que exibe o DNS do load balancer)
