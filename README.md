@@ -44,7 +44,7 @@ O security group é o grupo de segurança que define as regras de entrada e saí
 O KMS é o Key Management Service, que é o serviço de gerenciamento de chaves. Para isso, é necessário criar uma chave e definir as regras de acesso.
 - Criacao da chave: ```main.tf``` linhas 78-80 (nome = "example", essa chave será usada para criptografar o secret que sao armazenados no secret manager)
 - Criacao do segredo: ```main.tf``` linhas 82-86 (nome = "example-16-pwetty-please", kms_ket_id indica qual chave será usada para criptografar o secret)
--Criacao de um exemplo de segredo: ```main.tf``` linhas 88-92 (secret_string indica o conteúdo do secret que esta dentro de um arquivo chamado "secrets.json")
+- Criacao de uma versao de segredo: ```main.tf``` linhas 88-92 (secret_string indica o conteúdo do secret que, no meu caso, esta dentro de um arquivo chamado "secrets.json")
 - Politica de acesso: ```main.tf``` linhas 94-112 (essa politica permite o principal (no caso, a funcao IAM com ARN especifico) a acessar a chave criada anteriormente)
 
 ### 5. IAM
