@@ -2,7 +2,7 @@
 **Desenvolvido por:** Ricardo Israel
 
 ## Descrição do projeto
-O principal objetivo do projeto é proteger e garantir a segurança de dados sensíveis em uma aplicação ECS, mantendo segredos criptografados em um gerenciador de segredos em vez de coloca-los diretamente no código. Produtos da AWS como o AWS Secret Manager e o AWS KMS são responsáveis por gerenciar os segredos e criptografar e descriptografar os segredos de forma segura e eficiente, respectivamente.
+O principal objetivo do projeto é proteger e garantir a segurança de dados sensíveis em uma aplicação ECS, mantendo segredos criptografados em um gerenciador de segredos em vez de coloca-los diretamente no código. Produtos da AWS como o AWS Secret Manager e o AWS KMS são responsáveis por gerenciar os essa informacao confidencial e criptografar e descriptografar os segredos de forma segura e eficiente, respectivamente.
 
 Como os segredos não são revelados no código da aplicação, essa estratégia possui várias vantagens em termos de segurança, pois reduz significativamente a probabilidade de vazamentos e ataques cibernéticos. Além disso, o uso do AWS Secret Manager e do AWS KMS permite que os segredos sejam rotacionados com facilidade e segurança, sem a necessidade de alterar o código da aplicação.
 
