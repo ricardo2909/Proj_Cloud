@@ -35,7 +35,7 @@ A VPC é a rede virtual onde os recursos serão alocados. Para isso, é necessá
 - Internet Gateway: ```main.tf``` linhas 38-50
 
 ### 3. Security Group
-O security group é o grupo de segurança que define as regras de entrada e saída de dados. É definir as regras de entrada e saída.
+O security group é o grupo de segurança que define as regras de entrada e saída de dados. É preciso definir as regras de entrada e saída.
 - Ingress: ```main.tf``` linhas 57-62 (Regras de entrada, no meu caso, só permitindo acesso pela porta 80)
 - Egrees: ```main.tf``` linhas 64-69 (Regras de saída, no meu caso, permitindo acesso a qualquer porta)
 - Tags: ```main.tf``` linhas 71-74 (Tags para identificar o security group)
