@@ -11,13 +11,14 @@ No arquivo ```main.tf```, é necessário trocar o nome do *secret manager* (linh
 - "example-17-pwetty-please", aumentando uma unidade no número a cada novo teste.
 
 A seguir, os 3 principais comandos do terraform para subir a aplicação:
+vale lembrar que é necessario ter o terraform instalado na maquina e esses comando rodados dentro da pasta do projeto.
 - ```terraform init```
 - ```terraform plan```
 - ```terraform apply``` (náo se esqueça de escrever "yes" na hora de digitar um valor)
 
 Após o apply, haverá um link como output, no próprio terminal, na varialvel ```elb_public_ip```.
 
-Copie esse link e cole em uma nova aba.
+Copie esse link e cole em uma nova aba de um navegador.
 
 Haverá um "Hello, World!" na tela. Isso significa que você conseguiu acesso ao secret com sucesso e consequentemente servindo com êxito. 
 
